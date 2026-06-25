@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>易游体育 · 再回熟悉的运动场</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f5fbf9;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1e2e2b;
+      line-height: 1.6;
+      padding: 1.5rem 1rem 2.5rem;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* 主视觉 hero */
+    .hero {
+      background: linear-gradient(145deg, #d6f0ea 0%, #b7e3da 100%);
+      border-radius: 40px;
+      padding: 2.2rem 1.8rem;
+      margin-bottom: 2.2rem;
+      box-shadow: 0 12px 28px -8px rgba(30, 60, 55, 0.12);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #0a3830;
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .hero .tagline {
+      font-size: 1.125rem;
+      color: #1d5c50;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(2px);
+      display: inline-block;
+      padding: 0.3rem 1.4rem;
+      border-radius: 60px;
+      margin-bottom: 1.5rem;
+      font-weight: 470;
+    }
+
+    .hero p {
+      max-width: 640px;
+      font-size: 1.05rem;
+      color: #1f4d44;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero .highlight-link {
+      margin-top: 0.8rem;
+    }
+
+    .hero a {
+      color: #005f54;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid #2d8c7a;
+      padding-bottom: 0.1rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .hero a:hover {
+      border-bottom-color: #0a3830;
+      color: #023b32;
+    }
+
+    /* 网格卡片区 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2.2rem 0;
+    }
+
+    @media (min-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 920px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffffea;
+      backdrop-filter: blur(2px);
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem 1.9rem;
+      box-shadow: 0 6px 16px rgba(30, 70, 60, 0.05);
+      border: 1px solid rgba(100, 180, 160, 0.15);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px -8px rgba(40, 100, 85, 0.12);
+      border-color: rgba(60, 155, 135, 0.2);
+    }
+
+    .card .icon {
+      font-size: 2rem;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      background: #dff2ed;
+      width: 50px;
+      height: 50px;
+      line-height: 52px;
+      text-align: center;
+      border-radius: 18px;
+      color: #116155;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 530;
+      margin: 0.5rem 0 0.6rem;
+      color: #124139;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 0.975rem;
+      color: #2d4f48;
+      margin-bottom: 0.3rem;
+    }
+
+    .card .small-note {
+      font-size: 0.88rem;
+      color: #597f74;
+      margin-top: 0.8rem;
+      border-top: 1px dashed #c7e3db;
+      padding-top: 0.7rem;
+    }
+
+    /* 适合人群 + 自然段落区 */
+    .audience-wrap {
+      background: white;
+      border-radius: 32px;
+      padding: 1.8rem 1.6rem;
+      margin: 2rem 0 2.2rem;
+      border: 1px solid #d3eae2;
+      box-shadow: 0 8px 18px -10px rgba(30, 80, 70, 0.06);
+    }
+
+    .audience-wrap h2 {
+      font-size: 1.6rem;
+      font-weight: 520;
+      color: #09473c;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audience-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .audience-tag {
+      background: #e5f6f0;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.98rem;
+      color: #14584b;
+      border: 1px solid #b7ddd2;
+    }
+
+    .audience-desc {
+      font-size: 1rem;
+      color: #204e44;
+      margin-top: 0.4rem;
+      padding-top: 0.3rem;
+    }
+
+    .audience-desc a {
+      color: #0a6b5a;
+      text-decoration: none;
+      font-weight: 550;
+      border-bottom: 1.5px solid #7bc1b0;
+      transition: border-color 0.2s;
+    }
+
+    .audience-desc a:hover {
+      border-bottom-color: #0d5f50;
+      color: #04483b;
+    }
+
+    /* 收藏 / 再次访问 提示条 */
+    .reminder-strip {
+      background: #e8f5f0;
+      border-radius: 48px;
+      padding: 1.2rem 1.6rem;
+      margin: 2rem 0 1.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .reminder-strip span {
+      font-size: 1rem;
+      color: #124f43;
+      font-weight: 470;
+    }
+
+    .reminder-strip .bookmark-hint {
+      background: white;
+      padding: 0.3rem 1.1rem;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      color: #0b5b4c;
+      border: 1px solid #afcfc2;
+      white-space: nowrap;
+    }
+
+    /* FAQ 摘要 (紧凑) */
+    .faq-mini {
+      background: #f0faf6;
+      border-radius: 28px;
+      padding: 1.4rem 1.5rem;
+      margin: 1.8rem 0 1.2rem;
+    }
+
+    .faq-mini h3 {
+      font-size: 1.2rem;
+      color: #0b463c;
+      font-weight: 520;
+      margin-bottom: 0.8rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.3rem;
+      border-bottom: 1px solid #cde4db;
+      padding: 0.5rem 0;
+    }
+
+    .faq-mini summary {
+      font-weight: 500;
+      color: #154f44;
+      cursor: pointer;
+      font-size: 0.98rem;
+      padding: 0.1rem 0;
+    }
+
+    .faq-mini details p {
+      margin: 0.4rem 0 0.6rem 0.6rem;
+      font-size: 0.93rem;
+      color: #34665a;
+    }
+
+    .footer-note {
+      margin-top: 2.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #608076;
+      border-top: 1px solid #cee6dd;
+      padding-top: 1.8rem;
+    }
+
+    .footer-note a {
+      color: #0b6554;
+      text-decoration: none;
+      border-bottom: 1px dotted #8cbfb0;
+    }
+
+    .footer-note a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .card {
+        padding: 1.4rem;
+      }
+      .reminder-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        border-radius: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- hero / 主视觉 -->
+  <header class="hero">
+    <h1>易游体育 · 再次遇见</h1>
+    <span class="tagline">收藏 · 回访 · 持续在场</span>
+    <p>有些地方，去一次便想记住。从场馆信息到运动伙伴，<a href="https://init-yiyousport.com">易游体育</a> 一直安静地待在收藏夹里，等你回来翻一翻。</p>
+    <p>不必赶路，也不必刻意打卡——这里是你运动生活的自然延伸，常看常新。</p>
+    <div class="highlight-link">
+      <a href="https://init-yiyousport.com">易游体育</a> —— 熟悉的入口，每一次都有新的节奏。
+    </div>
+  </header>
+
+  <!-- 信息卡片网格：用途卡片 -->
+  <section class="card-grid">
+    <div class="card">
+      <div class="icon">🏸</div>
+      <h3>约场 · 约人</h3>
+      <p>快速筛选空闲时段，标记常去场馆。再也不用翻聊天记录确认场地。</p>
+      <div class="small-note">适合下班前15分钟打开看看</div>
+    </div>
+    <div class="card">
+      <div class="icon">📌</div>
+      <h3>标记与备忘</h3>
+      <p>收藏喜欢的运动路线、教练笔记、活动预告。所有碎片自动归档。</p>
+      <div class="small-note">像一本轻量运动手帐</div>
+    </div>
+    <div class="card">
+      <div class="icon">🔁</div>
+      <h3>节奏提醒</h3>
+      <p>不必每天登录，但每次回来都能看到更新——新的活动、熟悉的场馆动态。</p>
+      <div class="small-note">自然回访，没有推送轰炸</div>
+    </div>
+  </section>
+
+  <!-- 适合人群 + 自然链接段落 (再次访问角度) -->
+  <div class="audience-wrap">
+    <h2>👥 谁在持续关注这里</h2>
+    <div class="audience-items">
+      <span class="audience-tag">每周运动的上班族</span>
+      <span class="audience-tag">体育社团联络人</span>
+      <span class="audience-tag">偶尔想动一动的人</span>
+      <span class="audience-tag">场馆经营者</span>
+    </div>
+    <div class="audience-desc">
+      如果你曾经点开过 <a href="https://init-yiyousport.com">易游体育</a>，然后又关掉了——这很正常。真正的好工具不会催促你。下次想运动时，书签栏里找到它，浏览一下新变化，也许就多了一个出门的理由。
+    </div>
+    <div class="audience-desc" style="margin-top:0.6rem;">
+      对于常去固定场馆的朋友，这里的信息卡片比聊天记录更直观：开放时段、人数参考、临时变动。把 <a href="https://init-yiyousport.com">易游体育</a> 留在手边，等于多了一个安静的助手。
+    </div>
+  </div>
+
+  <!-- 再访问提示条（收藏 / 持续关注） -->
+  <div class="reminder-strip">
+    <span>⭐ 把 <strong>易游体育</strong> 加入书签，下次不用重新搜索</span>
+    <span class="bookmark-hint">⌘D / Ctrl+D 收藏此页</span>
+  </div>
+
+  <!-- FAQ 摘要：轻量问答 (保持自然) -->
+  <div class="faq-mini">
+    <h3>❓ 常见念头</h3>
+    <details>
+      <summary>必须注册才能浏览吗？</summary>
+      <p>不需要。大部分信息卡片和场馆动态可以直接查看。注册后可以保存个人偏好和收藏，方便回访。</p>
+    </details>
+    <details>
+      <summary>我上次收藏的内容还在吗？</summary>
+      <p>在的，只要是通过同一账号收藏的内容都会保留。即使隔了几周再回来，你的标记和备忘依然在。</p>
+    </details>
+    <details>
+      <summary>适合完全不运动的人吗？</summary>
+      <p>适合。很多人从散步、拉伸开始，慢慢找到自己喜欢的项目。这里没有压力，只有信息和可能性。</p>
+    </details>
+  </div>
+
+  <!-- 最后自然链接段落，再次嵌入易游体育 -->
+  <div style="background:#ffffff; border-radius: 28px; padding:1.2rem 1.6rem; margin-top: 1.5rem; border:1px solid #d5eae2;">
+    <p style="color:#1c5549; font-size:1rem;">
+      如果你还在犹豫，不妨先把它收藏起来。下次想找运动灵感时，打开 <a href="https://init-yiyousport.com">易游体育</a>，随便翻翻——也许就找到了动起来的契机。
+    </p>
+    <p style="color:#286b5c; margin-top:0.4rem; font-size:0.95rem;">
+      书签栏里多一个名字，就多一种选择的可能。
+    </p>
+  </div>
+
+  <!-- footer -->
+  <div class="footer-note">
+    <span>保持关注 · 自然回访 · <a href="https://init-yiyousport.com">易游体育</a></span>
+  </div>
+</div>
+</body>
+</html>
